@@ -1,7 +1,7 @@
 <div class="chapter-grid" *ngIf="!!gridOptions && book">
   <ag-grid-angular
     class="ag-theme-alpine chapter-grid--grid"
-    [rowData]="book?.chapters"
+    [rowData]="book.chapters"
     [gridOptions]="gridOptions"
   >
   </ag-grid-angular>

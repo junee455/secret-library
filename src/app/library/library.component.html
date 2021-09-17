@@ -8,7 +8,7 @@
     >
       &#9776;
     </button>
-    <div *ngIf="showMenu then menuBlock"></div>
+    <div *ngIf="showMenu; then menuBlock"></div>
     <ng-template #menuBlock>
       <button
         mat-raised-button

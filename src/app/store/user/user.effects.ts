@@ -13,7 +13,11 @@ export class UserEffects {
       switchMap((action) =>
         this.authenticationService.login(action.name, action.password)
       ),
-      map((user: User) => userActions.loadUserData(user))
+      map((user: User) => {
+        localStorage.setItem('token', user.name + user.id);
+        localStorage.setItem('id', String(user.id));
+        return userActions.loadUserData(user)
+      })
     )
   );
 

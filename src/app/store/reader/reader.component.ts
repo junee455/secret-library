@@ -32,13 +32,11 @@ export class ReaderComponent implements OnInit {
         .select(selectBookById, { id: params.bookId })
         .pipe(filter((book) => !!book))
         .subscribe((book: Book | undefined) => {
-          if (book) {
-            this.chapter = book.chapters?.find(
-              (chapter) => chapter.name === params.chapter
-            );
-            this.bookId = book.id;
-            this.store.dispatch(setCurrentBook({ id: book.id }));
-          }
+          this.chapter = book!.chapters?.find(
+            (chapter) => chapter.name === params.chapter
+          );
+          this.bookId = book!.id;
+          this.store.dispatch(setCurrentBook({ id: book!.id }));
         });
     });
   }

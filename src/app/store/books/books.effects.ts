@@ -14,10 +14,8 @@ export class BooksEffects {
   requestBooks$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BooksActions.requestBooks),
-      switchMap(() => this.store.select(selectUser)),
-      filter((user: User | undefined) => !!user),
-      switchMap((user: User | undefined) =>
-        this.booksService.getAllBooks(user?.id || '')
+      switchMap(() =>
+        this.booksService.getAllBooks(String(localStorage.getItem('id')))
       ),
       map((books) =>
         BooksActions.loadBooks({

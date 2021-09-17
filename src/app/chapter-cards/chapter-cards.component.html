@@ -1,11 +1,11 @@
 <div class="chapter-cards-container">
-  <div
-    *ngFor="let chapter of book?.chapters"
+  <app-card
+    *ngFor="let chapter of book.chapters"
     (click)="readChapter(chapter.name)"
+    [headerTemplate]="null"
+    [ratingTemplate]="null"
+    [ratingTemplate]="accessLevel === 1 ? null : null"
+    [chapter]="chapter"
     class="chapter-card"
-  >
-    <h2>{{ chapter.name }}</h2>
-    <div>Rating: {{ chapter.rating }}</div>
-    <div>Symbols: {{ chapter.symbolsCount }}</div>
-  </div>
+  ></app-card>
 </div>

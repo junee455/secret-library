@@ -27,6 +27,7 @@ import { ChaptersComponent } from './chapters/chapters.component';
 import { UserModule } from './store/user/user.module';
 import { AuthenticationService } from './services/authentication.service';
 import { StarsRendererComponent } from './stars-renderer/stars-renderer.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { StarsRendererComponent } from './stars-renderer/stars-renderer.componen
     ChapterCardsComponent,
     ReaderComponent,
     StarsRendererComponent,
+    CardComponent,
   ],
   imports: [
     AgGridModule,

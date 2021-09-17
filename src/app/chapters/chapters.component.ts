@@ -18,7 +18,7 @@ export class ChaptersComponent implements OnInit, OnDestroy {
 
   public displayMode: 'cards' | 'table' = 'table';
 
-  public book: Book | undefined;
+  public book!: Book;
 
   public switchDisplayMode() {
     if (this.displayMode === 'cards') {

@@ -1,0 +1,15 @@
+<div>
+  <ng-container [ngTemplateOutlet]="headerTemplate">{{
+    chapter.name
+  }}</ng-container>
+
+  <div>Symbols: {{ chapter.symbolsCount }}</div>
+
+  <ng-container [ngTemplateOutlet]="ratingTemplate">{{
+    chapter.rating
+  }}</ng-container>
+
+  <ng-container *ngIf="previewTemplate" [ngTemplateOutlet]="previewTemplate"
+    >{{ chapter.text }}
+  </ng-container>
+</div>

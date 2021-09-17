@@ -16,6 +16,7 @@ export class AuthenticationService {
     const mockUser = mockUsers.find(
       (user) => user.name === name && user.password === password
     );
+    
     return of({
       name: mockUser?.name,
       id: mockUser?.id,
@@ -25,5 +26,6 @@ export class AuthenticationService {
 
   logout() {
     // remove user from local storage to log user out
+    localStorage.clear();
   }
 }

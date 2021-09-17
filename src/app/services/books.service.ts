@@ -19,7 +19,7 @@ export class BooksService {
   }
 
   // if new book is created server should return same book entity with id
-  public createBook(book: Book): Observable<Book | undefined> {
+  public createBook(book: Book): Observable<Book> {
     const newBook = JSON.parse(JSON.stringify(book));
     newBook.id = Math.round(Math.random() * 100).toString();
     return of(newBook);

@@ -26,11 +26,11 @@ function getColDefs(): ColDef[] {
 export class ChapterGridComponent implements OnInit, OnDestroy {
   private $destroy: Subject<void> = new Subject();
 
-  @Input() book: Book | undefined;
+  @Input() book!: Book;
 
   public colDef: ColDef[] = [];
 
-  public gridOptions: GridOptions | undefined;
+  public gridOptions!: GridOptions;
 
   private gridApi?: GridApi;
 

@@ -1,4 +1,4 @@
-# SecretLibrary
+# Secret Library
 
 ## build and run
 
@@ -6,8 +6,8 @@
 npm install
 ng serve --open
 ```
-this will open application on localhost:4200
 
+this will open application on localhost:4200
 
 ## usage
 

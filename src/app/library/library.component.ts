@@ -78,7 +78,6 @@ export class LibraryComponent implements OnInit, OnDestroy {
         const width = this.viewportRuler.getViewportSize().width;
         this.ngZone.run(() => {
           if (width < 1000) {
-          
             if (!this.forceHideMenu) {
               this.showMenu = false;
             }
@@ -86,7 +85,7 @@ export class LibraryComponent implements OnInit, OnDestroy {
           } else {
             this.forceHideMenu = false;
           }
-        })
+        });
       });
     this.store.dispatch(requestBooks());
     this.store
