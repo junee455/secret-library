@@ -1,0 +1,19 @@
+<div class="add-book-container">
+  <h3>Add a new book</h3>
+  <form [formGroup]="formGroup">
+    <mat-form-field appearance="fill">
+      <mat-label>Book name</mat-label>
+      <input formControlName="name" matInput value="" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input formControlName="description" matInput value="" />
+    </mat-form-field>
+    <div class="buttons-container">
+      <button mat-raised-button color="primary" (click)="onSubmit()">
+        Submit
+      </button>
+      <button mat-raised-button (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,27 +1,40 @@
 # SecretLibrary
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
+## build and run
 
-## Development server
+```
+npm install
+ng serve --open
+```
+this will open application on localhost:4200
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+login first
 
-## Build
+currently there are 4 users
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### john
 
-## Running unit tests
+password: 1234  
+access: high - can read any of 4 abailable books
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### anne
 
-## Running end-to-end tests
+password: 5678  
+access: medium
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### robert
 
-## Further help
+password: 9111  
+access: medium
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### paul
+
+password: 1213  
+access: low - only A Picture of Dorian Grey
+
+click on cards or grid rows to read the chapter, the rest of the interface is quite self explanatory
+
+also check out responsive design

@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.app-root {
+  min-height: 100%;
+}
+
+.ag-cell-focus,
+.ag-cell-no-focus {
+  border: 1px solid transparent !important;
+}
+
+::ng-deep .ag-cell:focus {
+  border: 1px solid transparent !important;
+  outline: none;
+}

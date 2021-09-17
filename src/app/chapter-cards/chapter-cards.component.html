@@ -1,0 +1,11 @@
+<div class="chapter-cards-container">
+  <div
+    *ngFor="let chapter of book?.chapters"
+    (click)="readChapter(chapter.name)"
+    class="chapter-card"
+  >
+    <h2>{{ chapter.name }}</h2>
+    <div>Rating: {{ chapter.rating }}</div>
+    <div>Symbols: {{ chapter.symbolsCount }}</div>
+  </div>
+</div>

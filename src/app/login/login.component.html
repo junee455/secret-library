@@ -1,0 +1,18 @@
+<div class="app-login-container">
+  <h3>Wellcome</h3>
+
+  <form class="login-form" [formGroup]="formGroup">
+    <mat-form-field appearance="fill">
+      <mat-label>Login</mat-label>
+      <input formControlName="login" matInput value="" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput value="" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Login
+    </button>
+  </form>
+</div>

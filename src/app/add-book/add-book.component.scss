@@ -1,0 +1,8 @@
+@import "global";
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  width: 100%;
+}

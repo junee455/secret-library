@@ -1,0 +1,51 @@
+<div class="library-container">
+  <div class="book-list-container" [class]="showMenu ? 'shown' : ''">
+    <button
+      mat-mini-fab
+      color="primary"
+      class="menu-button"
+      (click)="toggleMenu()"
+    >
+      &#9776;
+    </button>
+    <div *ngIf="showMenu then menuBlock"></div>
+    <ng-template #menuBlock>
+      <button
+        mat-raised-button
+        color="primary"
+        class="menu-button"
+        (click)="addBook()"
+      >
+        Add book
+      </button>
+      <div *ngIf="books.length; then bookListBlock; else noBooksBlock"></div>
+      <ng-template #bookListBlock>
+        <div class="book-list">
+          <h3
+            *ngFor="let book of books"
+            [class]="selectedBook?.id === book.id ? 'selected' : ''"
+            class="book-list--book"
+            (click)="selectBook(book.id)"
+          >
+            {{ book.name }}
+          </h3>
+        </div>
+      </ng-template>
+      <ng-template #noBooksBlock>
+        <h3 class="no-books">No books yet</h3>
+      </ng-template>
+      <button
+        mat-raised-button
+        color="primary"
+        class="logout-button"
+        (click)="logout()"
+      >
+        Logout
+      </button>
+    </ng-template>
+  </div>
+  <div class="work-area">
+    <h3 *ngIf="!selectedBook">Select a book to read</h3>
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<button
+  mat-raised-button
+  color="primary"
+  class="switch-mode-button"
+  (click)="switchDisplayMode()"
+>
+  {{ displayMode === "cards" ? "Show as table" : "Show as cards" }}
+</button>
+
+<div class="work-area-book-data">
+  <h1 class="book-name">{{ book?.name }}</h1>
+  <div
+    *ngIf="book?.description; else noDescriptionBlock"
+    class="book-description"
+  >
+    {{ book?.description }}
+  </div>
+  <ng-template #noDescriptionBlock>
+    <div class="book-empty-description">No description yet</div>
+  </ng-template>
+  <div
+    *ngIf="displayMode === 'cards'; then cardsBlock; else gridBlock"
+    class="chapter-info"
+  ></div>
+  <ng-template #cardsBlock>
+    <app-chapter-cards [book]="book" style="flex-grow: 1"></app-chapter-cards>
+  </ng-template>
+  <ng-template #gridBlock>
+    <app-chapter-grid [book]="book" style="flex-grow: 1"></app-chapter-grid>
+  </ng-template>
+</div>
