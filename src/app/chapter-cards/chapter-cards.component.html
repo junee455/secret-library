@@ -2,10 +2,28 @@
   <app-card
     *ngFor="let chapter of book.chapters"
     (click)="readChapter(chapter.name)"
-    [headerTemplate]="null"
+    [headerTemplate]="headerTemplate"
     [ratingTemplate]="null"
-    [ratingTemplate]="accessLevel === 1 ? null : null"
+    [previewTemplate]="accessLevel === 1 ? null : null"
     [chapter]="chapter"
     class="chapter-card"
   ></app-card>
 </div>
+
+<ng-template #headerTemplate>
+    <div [ngSwitch]="accessLevel">
+      <h3 *ngSwitchCase="3">
+        <ng-content></ng-content>
+      </h3>
+      <h2 *ngSwitchCase="2">
+        <ng-content></ng-content>
+      </h2>
+      <h1 *ngSwitchCase="1">
+        <ng-content></ng-content>
+      </h1>
+    </div>
+</ng-template>
+
+<ng-template #ratingTemplate></ng-template>
+
+<ng-template #previewTemplate></ng-template>

@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Book } from '../models/book';
+import { AccessLevel } from '../models/user';
 import { setCurrentBook } from '../store/books/books.actions';
 import { BooksState } from '../store/books/books.reducer';
 import { selectCurrentBook } from '../store/books/books.selectors';
@@ -20,12 +21,18 @@ export class ChaptersComponent implements OnInit, OnDestroy {
 
   public book!: Book;
 
+  public accessLevel = this.getAccessLevel()
+
   public switchDisplayMode() {
     if (this.displayMode === 'cards') {
       this.displayMode = 'table';
     } else {
       this.displayMode = 'cards';
     }
+  }
+
+  private getAccessLevel(): AccessLevel {
+    return Number(localStorage.getItem('access')) || AccessLevel.Low;
   }
 
   constructor(
