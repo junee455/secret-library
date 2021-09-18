@@ -20,11 +20,11 @@ export class ReaderComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private store: Store<BooksState>,
-    private location: Location
+    private router: Router
   ) {}
 
   public quit() {
-    this.location.back();
+    this.router.navigate(['library', this.bookId]);
   }
 
   ngOnInit(): void {

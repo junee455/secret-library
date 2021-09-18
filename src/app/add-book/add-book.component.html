@@ -1,19 +1,21 @@
 <div class="add-book-container">
-  <h3>Add a new book</h3>
+  <h3>{{ "AddBook" | i18next }}</h3>
   <form [formGroup]="formGroup">
     <mat-form-field appearance="fill">
-      <mat-label>Book name</mat-label>
+      <mat-label>{{ "BookNameLabel" | i18next }}</mat-label>
       <input formControlName="name" matInput value="" />
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Description</mat-label>
+      <mat-label>{{ "DescriptionLabel" | i18next }}</mat-label>
       <input formControlName="description" matInput value="" />
     </mat-form-field>
     <div class="buttons-container">
       <button mat-raised-button color="primary" (click)="onSubmit()">
         Submit
       </button>
-      <button mat-raised-button (click)="cancel()">Cancel</button>
+      <button mat-raised-button (click)="cancel()">
+        {{ "Cancel" | i18next }}
+      </button>
     </div>
   </form>
 </div>

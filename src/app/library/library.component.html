@@ -16,7 +16,7 @@
         class="menu-button"
         (click)="addBook()"
       >
-        Add book
+        {{ "AddBookButton" | i18next }}
       </button>
       <div *ngIf="books.length; then bookListBlock; else noBooksBlock"></div>
       <ng-template #bookListBlock>
@@ -40,7 +40,7 @@
         class="logout-button"
         (click)="logout()"
       >
-        Logout
+        {{ "Logout" | i18next }}
       </button>
     </ng-template>
   </div>

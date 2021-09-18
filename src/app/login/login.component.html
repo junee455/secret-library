@@ -1,14 +1,14 @@
 <div class="app-login-container">
-  <h3>Wellcome</h3>
+  <h3>{{ "Wellcome" | i18next }}</h3>
 
   <form class="login-form" [formGroup]="formGroup">
     <mat-form-field appearance="fill">
-      <mat-label>Login</mat-label>
+      <mat-label>{{ "LoginLabel" | i18next }}</mat-label>
       <input formControlName="login" matInput value="" />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Password</mat-label>
+      <mat-label>{{ "PasswordLabel" | i18next }}</mat-label>
       <input formControlName="password" matInput value="" />
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="onSubmit()">

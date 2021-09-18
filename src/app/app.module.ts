@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -16,6 +16,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ChapterGridComponent } from './chapter-grid/chapter-grid.component';
 import { ChapterCardsComponent } from './chapter-cards/chapter-cards.component';
 import { StoreModule } from '@ngrx/store';
+import {
+  I18NextModule,
+  I18NEXT_SERVICE,
+  ITranslationService,
+} from 'angular-i18next';
 
 import { BooksService } from './services/books.service';
 import { environment } from '../environments/environment';
@@ -28,6 +33,47 @@ import { UserModule } from './store/user/user.module';
 import { AuthenticationService } from './services/authentication.service';
 import { StarsRendererComponent } from './stars-renderer/stars-renderer.component';
 import { CardComponent } from './card/card.component';
+
+import * as EnJson from '../assets/locale/en.json';
+import * as RuJson from '../assets/locale/ru.json';
+
+export function appInit(i18next: ITranslationService) {
+  console.log(EnJson);
+  return () =>
+    i18next.init({
+      supportedLngs: ['en', 'ru'],
+      fallbackLng: 'en',
+      debug: true,
+      returnEmptyString: false,
+      resources: {
+        en: {
+          translation: EnJson,
+        },
+        ru: {
+          translation: RuJson,
+        },
+      },
+      ns: ['translation'],
+    });
+}
+
+function localeIdFactory(i18next: ITranslationService) {
+  return i18next.language;
+}
+
+const I18N_PROVIDERS = [
+  {
+    provide: APP_INITIALIZER,
+    useFactory: appInit,
+    deps: [I18NEXT_SERVICE],
+    multi: true,
+  },
+  {
+    provide: LOCALE_ID,
+    deps: [I18NEXT_SERVICE],
+    useFactory: localeIdFactory,
+  },
+];
 
 @NgModule({
   declarations: [
@@ -43,6 +89,7 @@ import { CardComponent } from './card/card.component';
     CardComponent,
   ],
   imports: [
+    I18NextModule.forRoot(),
     AgGridModule,
     ReactiveFormsModule,
     MatButtonModule,
@@ -61,7 +108,7 @@ import { CardComponent } from './card/card.component';
       logOnly: environment.production,
     }),
   ],
-  providers: [BooksService, AuthenticationService],
+  providers: [BooksService, AuthenticationService, ...I18N_PROVIDERS],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

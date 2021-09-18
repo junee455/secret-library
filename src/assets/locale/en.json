@@ -1,0 +1,15 @@
+{
+  "Wellcome": "Wellcome",
+  "LoginLabel": "Login",
+  "PasswordLabel": "Password",
+  "Back": "Back",
+  "AddBookButton": "Add book",
+  "Logout": "Logout",
+  "BookNameLabel": "Book name",
+  "AddBook": "Add a new book",
+  "DescriptionLabel": "Description",
+  "Cancel": "Cancel",
+  "Symbols": "Symbols",
+  "NoDescriptionYet": "No description yet",
+  "Rating": "Rating"
+}

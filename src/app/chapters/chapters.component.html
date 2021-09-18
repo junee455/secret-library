@@ -17,7 +17,7 @@
     {{ book?.description }}
   </div>
   <ng-template #noDescriptionBlock>
-    <div class="book-empty-description">No description yet</div>
+    <div class="book-empty-description">{{ "NoDescriptionYet" | i18next }}</div>
   </ng-template>
 
   <div

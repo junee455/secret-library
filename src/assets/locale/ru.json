@@ -1,0 +1,15 @@
+{
+  "Wellcome": "Добро пожаловать",
+  "LoginLabel": "Логин",
+  "PasswordLabel": "Пароль",
+  "Back": "Назад",
+  "AddBookButton": "Добавить книгу",
+  "Logout": "Выйти",
+  "BookNameLabel": "Название книги",
+  "AddBook": "Добавить новую книгу",
+  "DescriptionLabel": "Описание",
+  "Cancel": "Отменя",
+  "Symbols": "Количество символов",
+  "NoDescriptionYet": "Описания пока нет",
+  "Rating": "Рейтинг"
+}

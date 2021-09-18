@@ -26,7 +26,7 @@
 
 <ng-template #ratingTemplate let-rating>
   <ng-container [ngSwitch]="accessLevel">
-    <h3 *ngSwitchDefault>Rating: {{ rating }}</h3>
+    <h3 *ngSwitchDefault>{{ "Rating" | i18next }}: {{ rating }}</h3>
     <div *ngSwitchCase="1" style="color: gold">{{ "★".repeat(rating) }}</div>
   </ng-container>
 </ng-template>
