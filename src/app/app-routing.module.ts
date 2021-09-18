@@ -20,16 +20,6 @@ const routes: Routes = [
       {
         path: ':id',
         component: ChaptersComponent,
-        children: [
-          {
-            path: 'cards',
-            component: ChapterCardsComponent,
-          },
-          {
-            path: 'grid',
-            component: ChapterGridComponent,
-          },
-        ],
       },
       {
         path: 'read/:bookId/:chapter',

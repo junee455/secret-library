@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -29,6 +29,7 @@ export class ChaptersComponent implements OnInit, OnDestroy {
     } else {
       this.displayMode = 'cards';
     }
+    this.router.navigate(['library', this.book.id, { mode: this.displayMode }]);
   }
 
   private getAccessLevel(): AccessLevel {
@@ -37,7 +38,8 @@ export class ChaptersComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<BooksState>,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +47,9 @@ export class ChaptersComponent implements OnInit, OnDestroy {
     this.activatedRoute.params
       .pipe(takeUntil(this.$destroy))
       .subscribe((params) => {
+        if (!params.mode) {
+          this.router.navigate(['library', params.id, { mode: this.displayMode }]);
+        }
         this.store.dispatch(setCurrentBook({ id: params.id }));
       });
     this.store

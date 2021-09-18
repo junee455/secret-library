@@ -1,4 +1,5 @@
 <button
+  *ngIf="book"
   mat-raised-button
   color="primary"
   class="switch-mode-button"
@@ -7,7 +8,7 @@
   {{ displayMode === "cards" ? "Show as table" : "Show as cards" }}
 </button>
 
-<div class="work-area-book-data">
+<div *ngIf="!!book" class="work-area-book-data">
   <h1 class="book-name">{{ book.name }}</h1>
   <div
     *ngIf="book?.description; else noDescriptionBlock"
@@ -18,8 +19,9 @@
   <ng-template #noDescriptionBlock>
     <div class="book-empty-description">No description yet</div>
   </ng-template>
+
   <div
-    *ngIf="displayMode === 'cards'; then cardsBlock; else gridBlock"
+    *ngIf="(displayMode === 'cards'); then cardsBlock; else gridBlock"
     class="chapter-info"
   ></div>
   <ng-template #cardsBlock>
