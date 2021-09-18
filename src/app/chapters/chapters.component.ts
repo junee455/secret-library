@@ -48,7 +48,13 @@ export class ChaptersComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.$destroy))
       .subscribe((params) => {
         if (!params.mode) {
-          this.router.navigate(['library', params.id, { mode: this.displayMode }]);
+          this.router.navigate([
+            'library',
+            params.id,
+            { mode: this.displayMode },
+          ]);
+        } else {
+          this.displayMode = params.mode;
         }
         this.store.dispatch(setCurrentBook({ id: params.id }));
       });
