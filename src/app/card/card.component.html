@@ -1,15 +1,19 @@
 <div>
-  <ng-container [ngTemplateOutlet]="headerTemplate">{{
-    chapter.name
-  }}</ng-container>
+  <ng-container
+    [ngTemplateOutlet]="headerTemplate"
+    [ngTemplateOutletContext]="{ $implicit: chapter.name }"
+  ></ng-container>
 
   <div>Symbols: {{ chapter.symbolsCount }}</div>
 
-  <ng-container [ngTemplateOutlet]="ratingTemplate">{{
-    chapter.rating
-  }}</ng-container>
+  <ng-container
+    [ngTemplateOutlet]="ratingTemplate"
+    [ngTemplateOutletContext]="{ $implicit: chapter.rating }"
+  ></ng-container>
 
-  <ng-container *ngIf="previewTemplate" [ngTemplateOutlet]="previewTemplate"
-    >{{ chapter.text }}
-  </ng-container>
+  <ng-container
+    *ngIf="previewTemplate"
+    [ngTemplateOutletContext]="{ $implicit: chapter.text }"
+    [ngTemplateOutlet]="previewTemplate"
+  ></ng-container>
 </div>

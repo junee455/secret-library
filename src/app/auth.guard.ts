@@ -16,15 +16,9 @@ import { selectUser } from './store/user/user.selectors';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(
-    private store: Store<UserState>,
-    private router: Router
-  ) {}
-  
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
-  ) {
+  constructor(private store: Store<UserState>, private router: Router) {}
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return !!localStorage.getItem('token') || this.router.parseUrl('/login');
   }
 }

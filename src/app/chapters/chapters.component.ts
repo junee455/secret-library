@@ -21,7 +21,7 @@ export class ChaptersComponent implements OnInit, OnDestroy {
 
   public book!: Book;
 
-  public accessLevel = this.getAccessLevel()
+  public accessLevel = this.getAccessLevel();
 
   public switchDisplayMode() {
     if (this.displayMode === 'cards') {
@@ -41,6 +41,7 @@ export class ChaptersComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    console.log('accessLevel: ', this.accessLevel);
     this.activatedRoute.params
       .pipe(takeUntil(this.$destroy))
       .subscribe((params) => {

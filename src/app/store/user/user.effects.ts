@@ -17,7 +17,7 @@ export class UserEffects {
         localStorage.setItem('token', user.name + user.id);
         localStorage.setItem('id', String(user.id));
         localStorage.setItem('access', String(user.accessLevel));
-        return userActions.loadUserData(user)
+        return userActions.loadUserData(user);
       })
     )
   );

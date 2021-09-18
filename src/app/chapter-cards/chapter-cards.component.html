@@ -1,29 +1,38 @@
+<ng-template #headerTemplate let-header>
+  <div [ngSwitch]="accessLevel">
+    <h3 *ngSwitchCase="3">
+      {{ header }}
+    </h3>
+    <h2 *ngSwitchCase="2">
+      {{ header }}
+    </h2>
+    <h1 *ngSwitchCase="1">
+      {{ header }}
+    </h1>
+  </div>
+</ng-template>
+
 <div class="chapter-cards-container">
   <app-card
     *ngFor="let chapter of book.chapters"
     (click)="readChapter(chapter.name)"
     [headerTemplate]="headerTemplate"
-    [ratingTemplate]="null"
-    [previewTemplate]="accessLevel === 1 ? null : null"
+    [ratingTemplate]="ratingTemplate"
+    [previewTemplate]="accessLevel ? previewTemplate : null"
     [chapter]="chapter"
     class="chapter-card"
   ></app-card>
 </div>
 
-<ng-template #headerTemplate>
-    <div [ngSwitch]="accessLevel">
-      <h3 *ngSwitchCase="3">
-        <ng-content></ng-content>
-      </h3>
-      <h2 *ngSwitchCase="2">
-        <ng-content></ng-content>
-      </h2>
-      <h1 *ngSwitchCase="1">
-        <ng-content></ng-content>
-      </h1>
-    </div>
+<ng-template #ratingTemplate let-rating>
+  <ng-container [ngSwitch]="accessLevel">
+    <h3 *ngSwitchDefault>Rating: {{ rating }}</h3>
+    <div *ngSwitchCase="1" style="color: gold">{{ "★".repeat(rating) }}</div>
+  </ng-container>
 </ng-template>
 
-<ng-template #ratingTemplate></ng-template>
-
-<ng-template #previewTemplate></ng-template>
+<ng-template let-text #previewTemplate>
+  <div style="height: 100px; overflow: hidden; opacity: 0.3">
+    {{ text }}
+  </div>
+</ng-template>

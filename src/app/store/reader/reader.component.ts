@@ -6,6 +6,7 @@ import { selectBookById } from '../books/books.selectors';
 import { Book, Chapter } from 'src/app/models/book';
 import { filter } from 'rxjs/operators';
 import { setCurrentBook } from '../books/books.actions';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-reader',
@@ -19,11 +20,11 @@ export class ReaderComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private store: Store<BooksState>,
-    private router: Router
+    private location: Location
   ) {}
 
   public quit() {
-    this.router.navigate(['library', this.bookId]);
+    this.location.back();
   }
 
   ngOnInit(): void {

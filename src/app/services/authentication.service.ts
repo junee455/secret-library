@@ -16,7 +16,7 @@ export class AuthenticationService {
     const mockUser = mockUsers.find(
       (user) => user.name === name && user.password === password
     );
-    
+
     return of({
       name: mockUser?.name,
       id: mockUser?.id,

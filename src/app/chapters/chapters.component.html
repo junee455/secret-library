@@ -23,7 +23,11 @@
     class="chapter-info"
   ></div>
   <ng-template #cardsBlock>
-    <app-chapter-cards [book]="book" style="flex-grow: 1"></app-chapter-cards>
+    <app-chapter-cards
+      [accessLevel]="accessLevel"
+      [book]="book"
+      style="flex-grow: 1"
+    ></app-chapter-cards>
   </ng-template>
   <ng-template #gridBlock>
     <app-chapter-grid [book]="book" style="flex-grow: 1"></app-chapter-grid>
