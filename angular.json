@@ -92,6 +92,7 @@
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
+            "codeCoverage": true,
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
@@ -100,6 +101,9 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
             "scripts": []
           }
         },

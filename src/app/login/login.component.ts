@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (this.formGroup.valid) {
       this.store.dispatch(
         login({
-          name: this.formGroup.get('login')?.value,
-          password: this.formGroup.get('password')?.value,
+          name: this.formGroup.get('login')!.value,
+          password: this.formGroup.get('password')!.value,
         })
       );
     }
@@ -40,9 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .select(selectUser)
       .pipe(
         takeUntil(this.destroy$),
-        filter((user) => {
-          return !!user;
-        })
+        filter((user) => !!user)
       )
       .subscribe(() => {
         this.router.navigate(['library']);

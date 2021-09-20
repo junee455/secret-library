@@ -1,12 +1,5 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  OnDestroy,
-  TemplateRef,
-} from '@angular/core';
-import { Subject } from 'rxjs';
-import { Book, Chapter } from '../models/book';
+import { Component, Input } from '@angular/core';
+import { Book } from '../models/book';
 import { Router } from '@angular/router';
 import { AccessLevel } from '../models/user';
 

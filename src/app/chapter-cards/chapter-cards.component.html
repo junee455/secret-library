@@ -14,7 +14,7 @@
 
 <div class="chapter-cards-container">
   <app-card
-    *ngFor="let chapter of book.chapters"
+    *ngFor="let chapter of book?.chapters"
     (click)="readChapter(chapter.name)"
     [headerTemplate]="headerTemplate"
     [ratingTemplate]="ratingTemplate"

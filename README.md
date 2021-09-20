@@ -1,5 +1,10 @@
 # Secret Library
 
+## some comments on code
+
+Mock backend is made with services returning observables with mock data.
+In every conponent I use destroy$ subject to kill all the streams when component is destroyed.
+
 ## build and run
 
 ```
